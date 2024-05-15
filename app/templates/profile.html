@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Профиль пользователя</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0faff;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .profile-container {
+            background-color: #d9ecf6;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-container h1 {
+            color: #006bb2;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .profile-container p {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .profile-container .form-control-static {
+            color: #555;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-container">
+            <h1>Профиль пользователя</h1>
+            <p>Логин: <span class="form-control-static">{{ login }}</span></p>
+            <p>Email: <span class="form-control-static">{{ email }}</span></p>
+            <p>Пол: <span class="form-control-static">{{ 'Мужской' if gender=='M' else 'Женский' }}</span></p>
+            <button id="logout-button" class="btn btn-primary">Выйти</button>
+        </div>
+    </div>
+
+  <script>
+        document.getElementById("logout-button").addEventListener("click", function () {
+            clearAuthData();
+            redirectToLoginPage();
+        });
+
+        function clearAuthData() {
+        }
+
+        function redirectToLoginPage() {
+            window.location.href = "/";
+        }
+    </script>
+</body>
+</html>
